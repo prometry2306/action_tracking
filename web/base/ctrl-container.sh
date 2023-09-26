@@ -155,15 +155,14 @@ push() {
   # 2. tagging
   #echo docker tag ${IMAGE_NAME}:${LATEST} ${URL_REPO}:${LATEST}
   #docker tag ${IMAGE_NAME}:${LATEST} ${URL_REPO}:${LATEST}
-  echo docker tag kanpo-web:latest public.ecr.aws/d4g9d0l2/ubuntu22-cuda11.8-nlp:latest
-  docker tag kanpo-web:latest public.ecr.aws/d4g9d0l2/ubuntu22-cuda11.8-nlp:latest
+  echo docker tag mmpose-base:latest public.ecr.aws/d4g9d0l2/ubuntu22-cuda11.8-mmpose:latest
+  docker tag mmpose-base:latest public.ecr.aws/d4g9d0l2/ubuntu22-cuda11.8-mmpose:latest
 
   # 3. register to ECR
   #echo docker push ${URL_REPO}:${LATEST}
   #docker push ${URL_REPO}:${LATEST}
-  echo docker push public.ecr.aws/d4g9d0l2/ubuntu22-cuda11.8-nlp:latest
-  docker push public.ecr.aws/d4g9d0l2/ubuntu22-cuda11.8-nlp:latest
-
+  echo docker push public.ecr.aws/d4g9d0l2/ubuntu22-cuda11.8-mmpose:latest
+  docker push public.ecr.aws/d4g9d0l2/ubuntu22-cuda11.8-mmpose:latest
 }
 
 ecr_tagging() {
