@@ -1,0 +1,45 @@
+version: "3.8"
+services:
+  # Web Application(streamlit)
+  web:
+    restart: always
+    build:
+      context: web
+      dockerfile: Dockerfile
+    container_name: tracking
+    env_file:
+      - ./env-file/stg.env
+    working_dir: /opt/app/src
+    tty: true
+    volumes:
+      - ./web/app:/opt/app
+    ports:
+      - 80:8501
+    networks:
+      shared-nw:
+    # deploy:
+    #   resources:
+    #     reservations:
+    #       devices:
+    #         - capabilities: [gpu]
+    command: streamlit run main.py --server.port 8501
+
+  # mysql
+  # mysqldb:
+  #   image: mysql:8.0
+  #   container_name: mysql_container
+  #   env_file:
+  #     - ./env-file/stg.env
+  #   command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
+  #   volumes:
+  #     - ./mysql/data:/var/lib/mysql
+  #     - ./mysql/my.cnf:/etc/mysql/conf.d/my.cnf
+  #     - ./mysql/sql:/docker-entrypoint-initdb.d
+  #   ports:
+  #     - 3306:3306
+  #   networks:
+  #     shared-nw:
+
+networks:
+  shared-nw:
+    driver: bridge

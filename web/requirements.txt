@@ -1,0 +1,6 @@
+streamlit
+streamlit-card
+streamlit-option-menu
+st-mui-dialog
+streamlit-aggrid
+pandas
