@@ -6,7 +6,7 @@ services:
     build:
       context: web
       dockerfile: Dockerfile
-    container_name: tracking
+    container_name: streamlit
     env_file:
       - ./env-file/stg.env
     working_dir: /opt/app/src
